@@ -1,0 +1,34 @@
+{
+	"name": "arntech/guzzle-pool-client",
+	"type": "library",
+	"description": "ARNTech guzzle pool.",
+	"keywords": [
+		"guzzle",
+		"pool",
+		"cvv",
+		"cvv2",
+		"guzzle pool",
+		"guzzle async",
+		"guzzle async pool",
+		"guzzle non blocking pool"
+	],
+	"license": "GPL-3.0-only",
+	"authors": [{
+		"name": "Alexandru Negrila",
+		"email": "alex-codes@arntech.ro",
+		"homepage": "https://github.com/alxnegrila"
+	}],
+	"require": {
+		"php": "^7",
+		"ext-json": "*",
+		"arntech/utils": "*"
+	},
+	"config": {
+		"sort-packages": true
+	},
+	"autoload": {
+		"psr-4": {
+			"ARNTech\\GuzzlePoolClient\\": "src/"
+		}
+	}
+}
