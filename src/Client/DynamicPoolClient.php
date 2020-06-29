@@ -8,7 +8,6 @@ namespace ARNTech\GuzzlePoolClient\Cient;
 
 use ARNTech\GuzzlePoolClient\Pool\DynamicPool;
 use GuzzleHttp\Client;
-use GuzzleHttp\Promise\PromisorInterface;
 
 class DynamicPoolClient extends AbstractPoolClient
 {
@@ -18,8 +17,8 @@ class DynamicPoolClient extends AbstractPoolClient
     public function __construct(array $config = [])
     {
         if (!empty($config['pool'])) {
-            if (!$config['pool'] instanceof PromisorInterface) {
-                throw new \InvalidArgumentException('Specified pool must be instance of GuzzleHttp\Promise\PromisorInterface.');
+            if (!$config['pool'] instanceof DynamicPool) {
+                throw new \InvalidArgumentException('Specified pool must be instance of ARNTech\GuzzlePoolClient\Pool\DynamicPool.');
             }
         } else {
             if (empty($config['pool_size'])) {
