@@ -55,14 +55,14 @@ $this->client->wait();
 ```
 
 
-[badge-source]: https://img.shields.io/badge/source-arntech/guzzle-pool-client-blue.svg?style=flat-square
+[badge-source]: https://img.shields.io/static/v1?label=source&message=arntech/guzzle-pool-client&color=blue&style=flat-square
 [badge-release]: https://img.shields.io/packagist/v/arntech/guzzle-pool-client.svg?style=flat-square&label=release
 [badge-license]: https://img.shields.io/packagist/l/arntech/guzzle-pool-client.svg?style=flat-square
 [badge-php]: https://img.shields.io/packagist/php-v/arntech/guzzle-pool-client.svg?style=flat-square
 [badge-downloads]: https://img.shields.io/packagist/dt/arntech/guzzle-pool-client.svg?style=flat-square&colorB=mediumvioletred
 
-[source]: https://github.com/ARNTechnology/GuzzlePoolClient
+[source]: https://github.com/ARNTechnology/guzzle-pool-client
 [release]: https://packagist.org/packages/arntech/guzzle-pool-client
-[license]: https://github.com/ARNTechnology/GuzzlePoolClient/blob/master/LICENSE
+[license]: https://github.com/ARNTechnology/guzzle-pool-client/blob/master/LICENSE
 [php]: https://php.net
 [downloads]: https://packagist.org/packages/arntech/guzzle-pool-client
