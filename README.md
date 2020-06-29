@@ -1,4 +1,4 @@
-# GuzzlePoolClient
+# arntech/guzzle-pool-client
 [![Source Code][badge-source]][source]
 [![Latest Version][badge-release]][release]
 [![Software License][badge-license]][license]
@@ -54,6 +54,12 @@ $this->client->add($req1);
 $this->client->wait();
 ```
 
+
+[badge-source]: https://img.shields.io/badge/source-arntech/guzzle-pool-client-blue.svg?style=flat-square
+[badge-release]: https://img.shields.io/packagist/v/arntech/guzzle-pool-client.svg?style=flat-square&label=release
+[badge-license]: https://img.shields.io/packagist/l/arntech/guzzle-pool-client.svg?style=flat-square
+[badge-php]: https://img.shields.io/packagist/php-v/arntech/guzzle-pool-client.svg?style=flat-square
+[badge-downloads]: https://img.shields.io/packagist/dt/arntech/guzzle-pool-client.svg?style=flat-square&colorB=mediumvioletred
 
 [source]: https://github.com/ARNTechnology/GuzzlePoolClient
 [release]: https://packagist.org/packages/arntech/guzzle-pool-client
