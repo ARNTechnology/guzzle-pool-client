@@ -25,7 +25,7 @@ class DynamicPoolClient extends AbstractPoolClient
             if (empty($config['pool_size'])) {
                 $config['pool_size'] = 100;
             }
-            $config['pool'] = new DynamicPool($config['pool_size']);
+            $config['pool'] = new DynamicPool($config['pool_size'], []);
             unset($config['pool_size']);
         }
         parent::__construct($config);

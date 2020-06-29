@@ -5,6 +5,7 @@ namespace ARNTech\GuzzlePoolClient\Traits;
 
 
 use ARNTech\Utils\Iterator\ExpectingIterator;
+use ARNTech\Utils\Iterator\MapIterator;
 
 trait DynamicPoolTrait
 {

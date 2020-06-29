@@ -19,7 +19,7 @@ abstract class AbstractPool
     /**
      * @var int
      */
-    private $poolSize;
+    protected $poolSize;
 
     /**
      * DynamicPool constructor.
@@ -39,5 +39,11 @@ abstract class AbstractPool
                 $this->add($request);
             }
         }
+    }
+    abstract function promise();
+
+    public function wait()
+    {
+        $this->promise()->wait();
     }
 }

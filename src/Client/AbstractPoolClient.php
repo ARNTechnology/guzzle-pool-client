@@ -4,13 +4,16 @@
 namespace ARNTech\GuzzlePoolClient\Cient;
 
 
+use ARNTech\GuzzlePoolClient\Pool\AbstractPool;
 use GuzzleHttp\Client;
+use GuzzleHttp\Promise\PromiseInterface;
 use GuzzleHttp\Promise\PromisorInterface;
+use Psr\Http\Message\RequestInterface;
 
 abstract class AbstractPoolClient extends Client
 {
     /**
-     * @var PromisorInterface
+     * @var AbstractPool
      */
     private $pool;
 
@@ -32,8 +35,18 @@ abstract class AbstractPoolClient extends Client
         throw new \Exception("Sync calls can not be done with a PoolClient");
     }
 
-    public function request($method, $uri, array $options = [])
+    public function request($method, $uri = '', array $options = [])
     {
         throw new \Exception("Sync calls can not be done with a PoolClient");
     }
+    public function add(PromiseInterface $promise)
+    {
+        $this->pool->add($promise);
+    }
+
+    public function wait()
+    {
+        return $this->pool->wait();
+    }
+
 }

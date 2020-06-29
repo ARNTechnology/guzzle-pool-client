@@ -18,4 +18,9 @@ use function GuzzleHttp\Promise\each_limit;
 class DynamicPool extends AbstractPool implements PromisorInterface
 {
     use DynamicPoolTrait;
+
+    public function promise()
+    {
+        return each_limit($this->generator, $this->poolSize);
+    }
 }
