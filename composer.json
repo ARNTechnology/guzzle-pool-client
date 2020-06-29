@@ -19,9 +19,10 @@
 		"homepage": "https://github.com/alxnegrila"
 	}],
 	"require": {
-		"php": "^7",
+		"php": ">=7.1",
 		"ext-json": "*",
-		"arntech/utils": "*"
+		"guzzlehttp/guzzle": ">=6 <7",
+		"arntech/utils": ">=0.0.2"
 	},
 	"config": {
 		"sort-packages": true
