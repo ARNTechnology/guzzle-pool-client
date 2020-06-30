@@ -17,7 +17,7 @@ trait DynamicPoolTrait
     /**
      * @var ExpectingIterator
      */
-    private $generator;
+    protected $generator;
 
     public function reset()
     {

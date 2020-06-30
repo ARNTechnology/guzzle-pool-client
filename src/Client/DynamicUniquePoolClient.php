@@ -6,30 +6,27 @@
 
 namespace ARNTech\GuzzlePoolClient\Cient;
 
-use ARNTech\GuzzlePoolClient\Pool\DynamicPool;
-use ARNTech\GuzzlePoolClient\Traits\ClientPromiseAdd;
-use GuzzleHttp\Client;
+use ARNTech\GuzzlePoolClient\Pool\DynamicUniquePool;
+use ARNTech\GuzzlePoolClient\Traits\ClientUniquePromiseAdd;
+use GuzzleHttp\Promise\Promise;
 
-class DynamicPoolClient extends AbstractPoolClient
+class DynamicUniquePoolClient extends AbstractPoolClient
 {
-    use ClientPromiseAdd;
-    /**
-     * DynamicPoolClient constructor.
-     */
+    use ClientUniquePromiseAdd;
+
     public function __construct(array $config = [])
     {
         if (!empty($config['pool'])) {
-            if (!$config['pool'] instanceof DynamicPool) {
+            if (!$config['pool'] instanceof DynamicUniquePool) {
                 throw new \InvalidArgumentException('Specified pool must be instance of ARNTech\GuzzlePoolClient\Pool\DynamicPool.');
             }
         } else {
             if (empty($config['pool_size'])) {
                 $config['pool_size'] = 100;
             }
-            $config['pool'] = new DynamicPool($config['pool_size'], []);
+            $config['pool'] = new DynamicUniquePool($config['pool_size'], []);
             unset($config['pool_size']);
         }
-
         parent::__construct($config);
     }
 }

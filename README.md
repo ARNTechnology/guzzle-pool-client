@@ -34,11 +34,16 @@ $pool = new DynamicPool(100);// where 100 is the pool size
 $client = new DynamicPoolClient(['pool'=>$pool]);
 //or
 $client = new DynamicPoolClient(['pool_size'=>100]);// where 100 is the pool size
+//or use uniqe calls for each request
+$client = new DynamicUniquePoolClient(['pool_size'=>100]);
+$client->add($promise, 'key');
 ```
 ***DynamicPoolClient*** extends ***GuzzleHttp\Client***.
 The constructor accepts all GuzzleHttp\Client arguments plus __pool__ or __pool_size__.
+***DynamicUniquePoolClient*** is a client that requires and uses ***DynamicUniquePool*** this pool ensures that any consecutive requests are executed only once. This is achieved by setting a key (for example a hash between url and requested arguments).
 
 ## Example
+### 1. DynamicPoolClient
 ```php
 $this->client = new DynamicPoolClient(['pool_size'=>10]);
 $req1=$this->client->getAsync('http://first.url')
@@ -53,7 +58,19 @@ $req1=$this->client->getAsync('http://first.url')
 $this->client->add($req1);
 $this->client->wait();
 ```
+### 2. DynamicUniquePoolClient
+```php
+private function runGet($url)
+{
+    $this->client->add($this->client->getAsync($url), $url);
+}
+$this->client = new DynamicUniquePoolClient(['pool_size'=>10]);
+$this->runGet('http://first.url');
+$this->runGet('http://second.url');
+$this->runGet('http://first.url'); //this will be canceled
 
+$this->client->wait();
+```
 
 [badge-source]: https://img.shields.io/static/v1?label=source&message=arntech/guzzle-pool-client&color=blue&style=flat-square
 [badge-release]: https://img.shields.io/packagist/v/arntech/guzzle-pool-client.svg?style=flat-square&label=release

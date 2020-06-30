@@ -18,7 +18,8 @@ abstract class AbstractPoolClient extends Client
     /**
      * @var AbstractPool
      */
-    private $pool;
+    protected $pool;
+    protected $waits = false;
 
     public function __construct(array $config = [])
     {
@@ -42,14 +43,19 @@ abstract class AbstractPoolClient extends Client
     {
         throw new \Exception("Sync calls can not be done with a PoolClient");
     }
-    public function add(PromiseInterface $promise)
-    {
-        $this->pool->add($promise);
-    }
 
     public function wait()
     {
-        return $this->pool->wait();
+        if (!$this->waits) {
+            $this->waits = true;
+            return $this->pool->wait();
+        }
+    }
+
+    public function reset()
+    {
+        $this->waits = false;
+        $this->pool->reset();
     }
 
 }
