@@ -10,6 +10,10 @@ namespace ARNTech\GuzzlePoolClient\Traits;
 use ARNTech\Utils\Iterator\ExpectingIterator;
 use ARNTech\Utils\Iterator\MapIterator;
 
+/**
+ * Trait DynamicPoolTrait
+ * @package ARNTech\GuzzlePoolClient\Traits
+ */
 trait DynamicPoolTrait
 {
     use PoolTrait;
@@ -19,6 +23,9 @@ trait DynamicPoolTrait
      */
     protected $generator;
 
+    /**
+     * Resets the pool/workload
+     */
     public function reset()
     {
         $this->workload = new \ArrayIterator();

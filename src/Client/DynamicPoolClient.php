@@ -4,17 +4,23 @@
  * Alexandru Negrilã (alex-codes@arntech.ro) - ARN TECHNOLOGY
  */
 
-namespace ARNTech\GuzzlePoolClient\Cient;
+namespace ARNTech\GuzzlePoolClient\Client;
 
 use ARNTech\GuzzlePoolClient\Pool\DynamicPool;
 use ARNTech\GuzzlePoolClient\Traits\ClientPromiseAdd;
 use GuzzleHttp\Client;
 
+/**
+ * Class DynamicPoolClient
+ * @package ARNTech\GuzzlePoolClient\Cient
+ */
 class DynamicPoolClient extends AbstractPoolClient
 {
     use ClientPromiseAdd;
+
     /**
      * DynamicPoolClient constructor.
+     * @param array $config
      */
     public function __construct(array $config = [])
     {

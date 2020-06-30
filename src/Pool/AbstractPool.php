@@ -8,8 +8,13 @@ namespace ARNTech\GuzzlePoolClient\Pool;
 
 
 use ARNTech\GuzzlePoolClient\Traits\PoolTrait;
+use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\RequestInterface;
 
+/**
+ * Class AbstractPool
+ * @package ARNTech\GuzzlePoolClient\Pool
+ */
 abstract class AbstractPool
 {
     use PoolTrait;
@@ -43,8 +48,15 @@ abstract class AbstractPool
             }
         }
     }
+
+    /**
+     * @return PromiseInterface
+     */
     abstract function promise();
 
+    /**
+     * Runs wait on the pool
+     */
     public function wait()
     {
         $this->promise()->wait();

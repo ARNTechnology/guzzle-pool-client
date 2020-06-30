@@ -13,6 +13,10 @@ use GuzzleHttp\Promise\PromisorInterface;
 use Psr\Http\Message\RequestInterface;
 use function GuzzleHttp\Promise\each_limit;
 
+/**
+ * Class DynamicUniquePool
+ * @package ARNTech\GuzzlePoolClient\Pool
+ */
 class DynamicUniquePool implements PromisorInterface
 {
     /**
@@ -50,26 +54,37 @@ class DynamicUniquePool implements PromisorInterface
         }
     }
 
+    /**
+     * Runs wait on the pool
+     */
     public function wait()
     {
         $this->promise()->wait();
     }
 
+    /**
+     * @return PromiseInterface
+     */
     public function promise()
     {
         return each_limit($this->generator, $this->poolSize);
     }
+
     /**
      * @param RequestInterface $promise
      */
     public function add(PromiseInterface $promise, string $key)
     {
-        if(!$this->workload->offsetExists($key)) {
+        if (!$this->workload->offsetExists($key)) {
             $this->workload->offsetSet($key, $promise);
         } else {
             $promise->cancel();
         }
     }
+
+    /**
+     * Resets current pool
+     */
     public function reset()
     {
         $this->workload = new \ArrayIterator();

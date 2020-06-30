@@ -10,6 +10,10 @@ namespace ARNTech\GuzzlePoolClient\Traits;
 use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\RequestInterface;
 
+/**
+ * Trait PoolTrait
+ * @package ARNTech\GuzzlePoolClient\Traits
+ */
 trait PoolTrait
 {
     /**
@@ -20,6 +24,9 @@ trait PoolTrait
         $this->workload->append($request);
     }
 
+    /**
+     * Resets the pool/workload
+     */
     public function reset()
     {
         $this->workload = new \ArrayIterator();
