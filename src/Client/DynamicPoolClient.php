@@ -12,7 +12,7 @@ use GuzzleHttp\Client;
 
 /**
  * Class DynamicPoolClient
- * @package ARNTech\GuzzlePoolClient\Cient
+ * @package ARNTech\GuzzlePoolClient\Client
  */
 class DynamicPoolClient extends AbstractPoolClient
 {

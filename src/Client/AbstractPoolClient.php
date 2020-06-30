@@ -15,7 +15,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * Class AbstractPoolClient
- * @package ARNTech\GuzzlePoolClient\Cient
+ * @package ARNTech\GuzzlePoolClient\Client
  */
 abstract class AbstractPoolClient extends Client
 {

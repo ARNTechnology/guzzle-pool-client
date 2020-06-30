@@ -12,7 +12,7 @@ use GuzzleHttp\Promise\Promise;
 
 /**
  * Class DynamicUniquePoolClient
- * @package ARNTech\GuzzlePoolClient\Cient
+ * @package ARNTech\GuzzlePoolClient\Client
  */
 class DynamicUniquePoolClient extends AbstractPoolClient
 {
